@@ -20,10 +20,10 @@ class Music(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    @commands.command(name='playlist', description='Plays the playlist and shuffles it', help='Plays the playlist and shuffles it' aliases=[]):
-    async def _play_list(self, ctx, *):
-        self._play_song(ctx, "https://youtube.com/playlist?list=PLL2rsaZWyqtSp-hOi9r_6CCPha3JiEUFv")
-        self._shuffle(ctx)
+    @commands.command(name='the-playlist', description='Plays the playlist and shuffles it', help='Plays the playlist and shuffles it', aliases=['yt-pl'])
+    async def _play_list(self, ctx, *argw):
+        await self._play_song(ctx, track="https://youtube.com/playlist?list=PLL2rsaZWyqtSp-hOi9r_6CCPha3JiEUFv")
+        await self._shuffle(ctx)
 
     @commands.command(name='play', description=config.HELP_YT_LONG, help=config.HELP_YT_SHORT, aliases=['p', 'yt', 'pl'])
     async def _play_song(self, ctx, *, track: str):
