@@ -265,31 +265,7 @@ class Music(commands.Cog):
 
     @commands.command(name='volume', aliases=["vol"], description=config.HELP_VOL_LONG, help=config.HELP_VOL_SHORT)
     async def _volume(self, ctx, *args):
-        if ctx.guild is None:
-            await ctx.send(config.NO_GUILD_MESSAGE)
-            return
-
-        if await utils.play_check(ctx) == False:
-            return
-
-        if len(args) == 0:
-            await ctx.send("Current volume: {}% :speaker:".format(utils.guild_to_audiocontroller[ctx.guild]._volume))
-            return
-
-        try:
-            volume = args[0]
-            volume = int(volume)
-            if volume > 100:
-                raise Exception('')
-            current_guild = utils.get_guild(self.bot, ctx.message)
-
-            if utils.guild_to_audiocontroller[current_guild]._volume >= volume:
-                await ctx.send('Volume set to {}% :sound:'.format(str(volume)))
-            else:
-                await ctx.send('Volume set to {}% :loud_sound:'.format(str(volume)))
-            utils.guild_to_audiocontroller[current_guild].volume = volume
-        except:
-            await ctx.send("Error: Volume must be a number 1-100")
+        await ctx.send("CHANGE THE FUCKING VOLUME IN DISCORD YOU PILLOCK")
 
 
 def setup(bot):
